@@ -32,7 +32,7 @@ GET ToDo
 Return the details to a matching idea
 */
 
-app.get(*/todos/:id, function(){
+app.get("/todos/:id", function(){
     let id = req.params.id; // id we are looking for
     let matchingItem; // where we store 
 
@@ -106,9 +106,19 @@ app.post("/todos", function(){
 /*PUT ToDo
 make an update with matching ID
 */
+app.put("/todos/id", function (){
+   
+    let id = req.params.id;
 
+    for(let i=0; i<db.length; i++){
+        if(id == db[i].id){
+            matchingItem =db [i];
+            break;
+        }
+    }
 
-
+    res.sendStatus(202);
+})
 
 app.listen(PORT, function(){
     console.log("application start on port", PORT);
